@@ -24,10 +24,11 @@ public class DB extends SQLiteOpenHelper{
 				+ ");");
 	}
 	
-	public void create(String text) {
+	public SQLiteOpenHelper create(String text) {
 		ContentValues cv = new ContentValues();
 		cv.put("text", text);
 		getWritableDatabase().insert("vokabeln", null, cv);
+		return this;
 	}
 	
 	public Cursor findAll() {

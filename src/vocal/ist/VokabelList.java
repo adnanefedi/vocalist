@@ -47,13 +47,7 @@ public class VokabelList extends ListActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		db = new DB(this);
-		vokabeln = db.findAll();
-		
-		mInflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		
-		setAdapter();
-		getListView().setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+
 		
 	}
 
@@ -227,10 +221,13 @@ public class VokabelList extends ListActivity {
 	 */
 	@Override
 	protected void onResume() {
-		if (vokabeln != null)
-			vokabeln.close();
+		db = new DB(this);
 		vokabeln = db.findAll();
+		
+		mInflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		
 		setAdapter();
+		getListView().setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 		super.onResume();
 	}
 
@@ -238,8 +235,9 @@ public class VokabelList extends ListActivity {
 	 * @see android.app.Activity#onDestroy()
 	 */
 	@Override
-	protected void onDestroy() {
+	protected void onPause() {
 		vokabeln.close();
+		db.close();
 		super.onDestroy();
 	}
 	

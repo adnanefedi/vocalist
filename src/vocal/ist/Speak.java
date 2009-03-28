@@ -59,11 +59,19 @@ public class Speak extends Activity {
         		return true;
         	}});
     }
+    
+
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+	}
+
 
 	@Override
 	protected void onPause() {
 		super.onResume();
-		(new DB(this)).create(text.getText().toString());
+		(new DB(this)).create(text.getText().toString()).close();
 		new File("/sdcard/Dolmetscher/tmp.3gp").renameTo(new File("/sdcard/Dolmetscher/"+text.getText().toString()+".3gp"));
 	}
     
