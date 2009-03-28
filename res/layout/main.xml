@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+android:id="@+id/widget28"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+xmlns:android="http://schemas.android.com/apk/res/android"
+>
+	<EditText
+	android:id="@+id/text"
+	android:layout_width="480px"
+	android:layout_height="141px"
+	android:text="Speak.."
+	android:textStyle="bold"
+	android:textSize="77sp"
+	android:layout_alignParentTop="true"
+	android:layout_alignParentLeft="true"
+	>
+	</EditText>
+
+	<Button
+	android:id="@+id/rec"
+	android:layout_width="120dip"
+	android:layout_height="120dip"
+	android:text=""
+	android:background="@drawable/rec"
+	android:layout_alignParentBottom="true"
+	android:layout_alignParentLeft="true"
+	>
+	</Button>
+	<Button
+	android:id="@+id/play"
+	android:background="@drawable/play"
+	android:layout_width="120dip"
+	android:layout_height="120dip"
+	android:text=""
+	android:layout_alignParentBottom="true"
+	android:layout_alignParentRight="true"
+	>
+	</Button>
+	
+</RelativeLayout>
